@@ -4,6 +4,11 @@ from django.db import models
 
 
 class Ticket(models.Model):
+    def __str__(self):
+        return f"""
+        #{self.mID} on {self.mDateOfCreation} by {self.mCreatedBy} (Sovled: {self.mSolved})
+        """
+
     mID = models.PositiveIntegerField()
     mType = models.CharField(max_length=8)
     mCreatedBy = models.CharField(max_length=80)
@@ -11,4 +16,3 @@ class Ticket(models.Model):
     mDaysPassed = models.PositiveSmallIntegerField()
     mSolved = models.BooleanField()
     mComment = models.CharField(max_length=500)
-
