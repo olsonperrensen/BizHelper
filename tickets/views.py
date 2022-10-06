@@ -3,17 +3,22 @@ from django.http import Http404
 from .models import Ticket
 # Create your views here.
 
-mTickets = [2, 147, 483, 647, 14]
-
 
 def tickets(req, uTicketID):
     try:
-        if (uTicketID in mTickets):
-            mTicketID = uTicketID
-        return render(req, "tickets/ticket.html", {"mTicketID": mTicketID})
+        uTicket = Ticket.objects.get(mID=uTicketID)
+        return render(req, "tickets/ticket.html", {
+            "id": uTicket.mID,
+            "type": uTicket.mType,
+            "createdBy": uTicket.mCreatedBy,
+            "date": uTicket.mDateOfCreation,
+            "days": uTicket.mDaysPassed,
+            "solved": uTicket.mSolved,
+            "desc": uTicket.mComment, })
     except:
         raise Http404()
 
+
 def tIndex(req):
     mCurrentTickets = Ticket.objects.all()
-    return render(req,"tickets/tIndex.html",{"mCurrentTickets":mCurrentTickets})
+    return render(req, "tickets/tIndex.html", {"mCurrentTickets": mCurrentTickets})
