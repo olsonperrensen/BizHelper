@@ -3,7 +3,7 @@ from django.http import Http404
 from .models import Ticket
 # Create your views here.
 
-mTickets = [2, 147, 483, 647]
+mTickets = [2, 147, 483, 647, 14]
 
 
 def tickets(req, uTicketID):
@@ -16,4 +16,4 @@ def tickets(req, uTicketID):
 
 def tIndex(req):
     mCurrentTickets = Ticket.objects.all()
-    return render(req,"tickets/tIndex.html")
+    return render(req,"tickets/tIndex.html",{"mCurrentTickets":mCurrentTickets})

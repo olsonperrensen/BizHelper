@@ -1,1 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block mCss %}{% endblock  %}
+{% block mTitle%}Overview{% endblock  %}
+{% block mContent%}
+{% include "tickets/includes/header.html" %}
+<pre>
+    <ul>
+        {% for ticket in mCurrentTickets %}
+        <li><a href="{{ticket.mID}}">{{ticket.mID}}</a></li>
+        {% endfor %}
+    </ul>
+</pre>
+{% include "tickets/includes/footer.html" %}
+{% endblock  %}
