@@ -1,0 +1,1 @@
+pip install -r django-crispy-forms crispy-bootstrap5
