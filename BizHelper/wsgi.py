@@ -1,5 +1,5 @@
 """
-WSGI config for BizHelper project.
+WSGI config for bizhelper project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BizHelper.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bizhelper.settings')
 
 application = get_wsgi_application()
